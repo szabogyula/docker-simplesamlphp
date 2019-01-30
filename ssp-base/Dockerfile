@@ -34,10 +34,10 @@ RUN curl -o /usr/local/bin/composer https://getcomposer.org/download/$COMPOSER_V
 
 ENV SSP_ADMIN_PASSWORD=123 \
     SSP_DIR=/var/simplesamlphp \
-    SSP_HASH=253187815693306eb5a0b5cc8a6c6a94ba70a7846871abb210c65d403839f468 \
+    SSP_HASH=265787d2e69b77dacc7f30689c4cfbb955ce4827f6d755b061d0d22a580af927 \
     SSP_LOG_HANDLER=errorlog \
     SSP_LOG_LEVEL=6 \
-    SSP_VERSION=1.16.1
+    SSP_VERSION=1.16.3
     
 RUN mkdir $SSP_DIR \
   && curl -L -o /tmp/ssp.tar.gz https://github.com/simplesamlphp/simplesamlphp/releases/download/v$SSP_VERSION/simplesamlphp-$SSP_VERSION.tar.gz \
