@@ -34,10 +34,10 @@ RUN curl -o /usr/local/bin/composer https://getcomposer.org/download/$COMPOSER_V
 
 ENV SSP_ADMIN_PASSWORD=123 \
     SSP_DIR=/var/simplesamlphp \
-    SSP_HASH=265787d2e69b77dacc7f30689c4cfbb955ce4827f6d755b061d0d22a580af927 \
+    SSP_HASH=0e2fd641e8cba2966437fb64591e28a73fb90bae3bc97949c60a47a5b8c1e80e \
     SSP_LOG_HANDLER=errorlog \
     SSP_LOG_LEVEL=6 \
-    SSP_VERSION=1.16.3
+    SSP_VERSION=1.17.2
     
 RUN mkdir $SSP_DIR \
   && curl -L -o /tmp/ssp.tar.gz https://github.com/simplesamlphp/simplesamlphp/releases/download/v$SSP_VERSION/simplesamlphp-$SSP_VERSION.tar.gz \
@@ -45,9 +45,9 @@ RUN mkdir $SSP_DIR \
   && tar xvzf /tmp/ssp.tar.gz --strip-components 1 -C $SSP_DIR
 
 # make any additional dirs required by common modules
-RUN mkdir $SSP_DIR/data \
+RUN mkdir -p $SSP_DIR/data \
   && chown -R www-data $SSP_DIR \
-  && mkdir $SSP_DIR/ticketcache \
+  && mkdir -p $SSP_DIR/ticketcache \
   && chown -R www-data $SSP_DIR/ticketcache
 
 # Add default index page 
